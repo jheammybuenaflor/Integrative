@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUserShield } from 'react-icons/fa'; // Importing an icon from react-icons
+import { FaUserShield, FaEye, FaEyeSlash } from 'react-icons/fa'; // Importing an icon from react-icons
 
 const AdminLoginPage = () => {
   const [username, setUsername] = useState('');
@@ -32,7 +32,7 @@ const AdminLoginPage = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            style={{...styles.input, marginLeft: '30px' }}
+            style={{...styles.input, marginLeft: '20px'}}
           />
         </div>
         <div style={styles.inputGroup}>
@@ -44,10 +44,10 @@ const AdminLoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{...styles.input, marginLeft: '30px'}}
+              style={{...styles.input, marginLeft: '20px', width: 'calc(100% - 50px)'}}
             />
             <button type="button" onClick={togglePasswordVisibility} style={styles.toggleButton}>
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? <FaEyeSlash size={25} /> : <FaEye size={25} />}
             </button>
           </div>
         </div>
@@ -96,7 +96,7 @@ const styles = {
   },
   inputGroup: {
     display: 'flex',
-    alignItems: 'right',
+    alignItems: 'center',
     marginBottom: '15px',
   },
   input: {
@@ -105,21 +105,25 @@ const styles = {
     marginTop: '5px',
     borderRadius: '20px',
     border: '1px solid #ccc',
-    alignItems: 'left',
   },
   passwordContainer: {
-    display: 'flex',
-    alignItems: 'right',
+    position: 'relative',
+    flex: 1,
+    marginLeft: '6px',
+    alignItems: 'center',
   },
   toggleButton: {
-    marginLeft: '10px',
-    padding: '8px',
+    position: 'absolute',
+    right: '10px',
+    top: '50%',
+    transform: 'translateY(-40%)',
+    padding: '7px',
     border: 'none',
     backgroundColor: 'transparent',
     cursor: 'pointer',
   },
   loginButton: {
-    width: '40%',
+    width: '25%',
     padding: '10px',
     backgroundColor: '#8D0E0E', // Red background
     color: '#fff',

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { FaUsers } from 'react-icons/fa'; // Importing a group of people icon from react-icons
+import { FaEye, FaEyeSlash, FaUsers } from 'react-icons/fa'; // Importing an icon from react-icons
 
-const OfficeHeadLoginPage = () => {
+const AdminLoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +32,7 @@ const OfficeHeadLoginPage = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            style={{...styles.input, marginLeft: '30px' }}
+            style={{...styles.input, marginLeft: '20px'}}
           />
         </div>
         <div style={styles.inputGroup}>
@@ -44,10 +44,10 @@ const OfficeHeadLoginPage = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              style={{...styles.input, marginLeft: '30px'}}
+              style={{...styles.input, marginLeft: '20px', width: 'calc(100% - 50px)'}}
             />
             <button type="button" onClick={togglePasswordVisibility} style={styles.toggleButton}>
-              {showPassword ? 'Hide' : 'Show'}
+              {showPassword ? <FaEyeSlash size={25} /> : <FaEye size={25} />}
             </button>
           </div>
         </div>
@@ -96,7 +96,7 @@ const styles = {
   },
   inputGroup: {
     display: 'flex',
-    alignItems: 'right',
+    alignItems: 'center',
     marginBottom: '15px',
   },
   input: {
@@ -105,21 +105,25 @@ const styles = {
     marginTop: '5px',
     borderRadius: '20px',
     border: '1px solid #ccc',
-    alignItems: 'left',
   },
   passwordContainer: {
-    display: 'flex',
-    alignItems: 'right',
+    position: 'relative',
+    flex: 1,
+    marginLeft: '6px',
+    alignItems: 'center',
   },
   toggleButton: {
-    marginLeft: '10px',
-    padding: '8px',
+    position: 'absolute',
+    right: '10px',
+    top: '50%',
+    transform: 'translateY(-40%)',
+    padding: '7px',
     border: 'none',
     backgroundColor: 'transparent',
     cursor: 'pointer',
   },
   loginButton: {
-    width: '40%',
+    width: '25%',
     padding: '10px',
     backgroundColor: '#8D0E0E', // Red background
     color: '#fff',
@@ -138,4 +142,4 @@ const styles = {
   },
 };
 
-export default OfficeHeadLoginPage;
+export default AdminLoginPage;

@@ -32,7 +32,7 @@ const styles = {
   footer: {
     backgroundColor: '#8D0E0E', // Changed to red background
     color: 'white', // Changed text color to white
-    padding: '10px 20px', // Added padding on top and bottom, and 20px on left and right
+    padding: '5px 10px', // Added padding on top and bottom, and 20px on left and right
     textAlign: 'left',
     borderTop: '1px solid #ddd',
     position: 'fixed',

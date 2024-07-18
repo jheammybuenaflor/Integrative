@@ -7,20 +7,19 @@ import OfficeHeadLoginPage from '../pages/OfficeHeadLoginPage';
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false); // Initially hide dropdown
-  const [selectedRole, setSelectedRole] = useState(null); // State to manage selected role
+  const [selectedRole, setSelectedRole] = useState('Administrator'); // Default selected role
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown); // Toggle dropdown visibility
   };
 
   const handleRoleChange = (role) => {
-    // Handle role change logic here
     console.log('Selected Role:', role);
     setSelectedRole(role); // Set selected role
     setShowDropdown(false); // Hide dropdown after selection
   };
 
-  // Render different login pages based on selectedRole
+  // Render different login pages based on selectedRole or default to AdminLoginPage
   const renderLoginPage = () => {
     switch (selectedRole) {
       case 'Administrator':
@@ -30,7 +29,7 @@ const Header = () => {
       case 'Office Head':
         return <OfficeHeadLoginPage />;
       default:
-        return null;
+        return null; // Handle any other case as needed
     }
   };
 
@@ -63,7 +62,7 @@ const Header = () => {
           )}
         </div>
       </header>
-      {selectedRole && renderLoginPage()} {/* Render selected login page */}
+      {selectedRole !== null && renderLoginPage()} {/* Render selected login page */}
     </>
   );
 };
@@ -71,7 +70,7 @@ const Header = () => {
 const styles = {
   header: {
     backgroundColor: '#8D0E0E',
-    padding: '10px 20px',
+    padding: '10px 10px',
     color: 'white',
     textAlign: 'left',
     borderBottom: '1px solid #ddd',
